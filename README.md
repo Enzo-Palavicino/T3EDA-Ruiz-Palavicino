@@ -56,13 +56,3 @@ Se incluye `tests/script.txt` con un recorrido rápido de funcionalidades y erro
 ./EdaCal < tests/script.txt
 ```
 
-## Diseño
-
-- **Tokenización** mediante `Tokenizer`, que produce una `LinkedList<Token>`.
-- **Listas enlazadas y pilas** implementadas manualmente (`linked_list`, `stack`).
-- **Conversión a posfija** con Shunting-yard (`Parser::toPostfix`).
-- **Evaluación** desde posfija con una pila (`Evaluator`).
-- **Árbol de expresión** construido desde posfija (`Parser::buildTreeFromPostfix`) y recorrido por `Printer`.
-- **Tabla de símbolos** (`SymbolTable`) basada en `std::unordered_map`, con `ans` permanente.
-
-Toda la lógica se encuentra en `src/` organizada en módulos `.hpp/.cpp` tal como se solicita en la tarea.
