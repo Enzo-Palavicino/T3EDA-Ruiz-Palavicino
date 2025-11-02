@@ -1,0 +1,19 @@
+6 + 5
+x = 7 * ans
+x + ans
+tree
+posfix
+prefix
+5 + 3 * 5 + 2
+tree
+postfix
+prefix
+sqrt(16)
+-ans
+show ans
+show x
+q + 1
+10 / 0
+sqrt(-4)
+(2 + 3
+exit
