@@ -1,10 +1,12 @@
 CXX := g++
-CXXFLAGS := -std=c++11 -Wall -Wextra -pedantic -I./src
+CXXFLAGS := -std=c++11 -Wall -Wextra -pedantic -I./hpp -I./include
 LDFLAGS :=
 
 TARGET := EdaCal
-SRCS := $(wildcard src/*.cpp)
-OBJS := $(SRCS:.cpp=.o)
+SRCDIR := cpp
+OBJDIR := src
+SRCS := $(wildcard $(SRCDIR)/*.cpp)
+OBJS := $(patsubst $(SRCDIR)/%.cpp,$(OBJDIR)/%.o,$(SRCS))
 
 .PHONY: all clean run
 
@@ -13,7 +15,10 @@ all: $(TARGET)
 $(TARGET): $(OBJS)
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $@ $(OBJS)
 
-src/%.o: src/%.cpp
+$(OBJDIR):
+	mkdir -p $(OBJDIR)
+
+$(OBJDIR)/%.o: $(SRCDIR)/%.cpp | $(OBJDIR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 run: all
